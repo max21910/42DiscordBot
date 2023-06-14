@@ -3,9 +3,8 @@ import asyncio
 from datetime import datetime, timedelta
 
 # Private token ⚠️ do not share in public 
-TOKEN = 'MTExODYwMjQ4MTQzNDM2MTg4Ng.GwjUCA.29p2iUtpMxIG1gmb03qDpt43nv67pfqgNQopmw'  
-CHANNEL_ID = '1118586151121457302'
-CHANNEL_ID_test ='1116058641041207426'
+TOKEN = 'TOKEN'  
+CHANNEL_ID = 'CHANNEL_ID
 intents = discord.Intents.default()
 intents.message_content = True
 
