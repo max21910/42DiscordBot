@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 
 # Private token ⚠️ do not share in public 
 TOKEN = 'TOKEN'  
-CHANNEL_ID = 'CHANNEL_ID
+CHANNEL_ID = 'CHANNEL_ID'
 intents = discord.Intents.default()
 intents.message_content = True
 
