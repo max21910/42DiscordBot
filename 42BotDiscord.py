@@ -42,17 +42,22 @@ async def on_message(message):
         await septemberdate(message.channel)
 
         
-    if message.content.startswith('$help'):
+    if message.content.startswith('$Help'):
         await send_help_message(message.channel)
 
         
-    if message.content.startswith('$easteregg'):
+    if message.content.startswith('$Easteregg'):
         await send_easteregg_message(message.channel)
     
         
-    if message.content.startswith('$version'):
+    if message.content.startswith('$Version'):
+        await send_vers_message(message.channel)
+        
+    
+    if message.content.startswith('$Github'):
         await send_vers_message(message.channel)
       
+       
        
         
 
@@ -110,12 +115,13 @@ async def send_help_message(channel):
         "Guide d'utilisation du bot :\n"
         "- Pour obtenir le décompte jusqu'à la piscine de l'ecole 42, utilisez la commande `$42XXdays`.\n"
         "- Remplacer XX par le mois de votre piscine july, august, september.\n"
-        "- Pour afficher la version, utilisez la commande `$version`.\n"
-        "- Pour afficher ce message d'aide, utilisez la commande `$help`.\n"
+        "- Pour afficher la version, utilisez la commande `$Version`.\n"
+        "- Pour afficher ce message d'aide, utilisez la commande `$Help`.\n"
+        "- Pour afficher le code, utilisez la commande `$Github`.\n"
         "- created with ❤️ by max21910 in 🇫🇷 \n"
     )
     await channel.send(help_message)
-    print('send help message')
+
     
     
 # Message pour la version
@@ -134,7 +140,20 @@ async def send_easteregg_message(channel):
     )
     await channel.send(help_message)
    
-    print('Easter egg')
+
+    
+# Message pour open source 
+async def send_opensource_message(channel):
+    opensource_message = (
+        "https://github.com/max21910/42DiscordBot"
+       
+    )
+    await channel.send(opensource_message)
+   
+
+
+    
+    
 
 async def execute_julydate():
     channel = client.get_channel(CHANNEL_ID) 
