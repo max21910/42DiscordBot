@@ -7,9 +7,26 @@
 ## How to use it :
 Launch the .py files and wait for th connection ! 
 don't forget to allow your bot to your serveur
-## Instalation guide :
-make shure to have a TOKEN and a chanel id and change it in the .py files 
-## Note :
+## 🖲️ Commands :
+`
+$42julydays` show how many time for the july pool
+
+`
+$42augustdays` show how many time for the august pool
+
+`
+$42septemberdays `show how many time for the september pool
+
+`
+$help` show the command menu
+
+`
+$version` show the version of the bot
+
+
+## 📲 Instalation guide :
+make shure to have a `TOKEN` and a `chanel id` and change it in the .py files 
+## ⚠️ Note :
 every 12 pm the bot automaticly send message in the specify chanel id 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
