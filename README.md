@@ -23,6 +23,11 @@ $help` show the command menu
 `
 $version` show the version of the bot
 
+If the pool did not start the bot displays: `Il reste {days} jours, {hours} heures, {minutes} minutes et {seconds} secondes "
+        "avant la piscine de septembre à l'école 42 ! `
+if the pool has started the bot displays: `✅ La piscine de XX a commencer ! `
+if the pool is finished the bot displays: `🔴 La piscine de XX est terminer ! `
+XX correspond to the month of the pool 
 
 ## 📲 Instalation guide :
 make shure to have a `TOKEN` and a `chanel id` and change it in the .py files 
