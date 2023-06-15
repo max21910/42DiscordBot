@@ -8,6 +8,10 @@ CHANNEL_ID = 'CHANNEL_ID'
 intents = discord.Intents.default()
 intents.message_content = True
 
+
+intents = discord.Intents.default()
+intents.message_content = True
+
 client = discord.Client(intents=intents)
 
 
@@ -51,21 +55,7 @@ async def on_message(message):
       
        
         
-# Calcule du temp avant le debut de la piscine 
-async def send_countdown_message(channel):
-    event_date = datetime(2023, 7, 3, 8, 0, 0)  # Date et heure de l'événement de la piscine
-    current_date = datetime.now()
-    time_left = event_date - current_date
 
-    days = time_left.days
-    hours, remainder = divmod(time_left.seconds, 3600)
-    minutes, seconds = divmod(remainder, 60)
-
-    countdown_message = (
-        f"Il reste {days} jours, {hours} heures, {minutes} minutes et {seconds} secondes "
-        "avant l'événement de la piscine à l'école 42 !"
-    )
-    await channel.send(countdown_message)
     
 async def julydate(channel):
     event_date = datetime(2023, 7, 3, 8, 0, 0)  # Date et heure de l'événement de la piscine le 3 juillet 2023
@@ -131,16 +121,12 @@ async def send_help_message(channel):
 # Message pour la version
 async def send_vers_message(channel):
     vers_message = (
-        "- V1.2\n"
+        "- V1.3 (beta)\n"
         "- created with ❤️ by max21910 in 🇫🇷 \n"
     )
     await channel.send(vers_message)
     
-    
-    
-    
-    
- # Message pour l'easter egg 
+# Message pour l'easter egg 
 async def send_easteregg_message(channel):
     help_message = (
         "EasterEgg"
@@ -150,12 +136,27 @@ async def send_easteregg_message(channel):
    
     print('Easter egg')
 
+async def execute_julydate():
+    channel = client.get_channel(CHANNEL_ID) 
+    await julydate(channel)
 
-# send a message every day at 9 am of all pool dates times remaining 
+async def execute_augustdate():
+    channel = client.get_channel(CHANNEL_ID)  
+    await augustdate(channel)  
+    
+async def execute_septemberdate():
+    channel = client.get_channel(CHANNEL_ID)  
+    await septemberdate(channel)  
+    
+
+
+
+
+# send a message every day at 12 am of all pool dates times remaining 
 async def send_daily_message():
     while True:
         now = datetime.now()
-        target_time = now.replace(hour=0, minute=8, second=0)
+        target_time = now.replace(hour=12, minute=0, second=0)
 
         if now > target_time:
             target_time += timedelta(days=1)
@@ -165,8 +166,11 @@ async def send_daily_message():
 
         channel = client.get_channel(CHANNEL_ID) 
         channeltest = client.get_channel(CHANNEL_ID_test)
+        await asyncio.sleep(time_to_wait)
+        await client.wait_until_ready()  # Wait until the bot is ready
+        await execute_julydate()
+        await execute_augustdate()
+        await execute_septemberdate()
         
-
-         
 
 client.run(TOKEN)
