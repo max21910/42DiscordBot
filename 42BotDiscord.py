@@ -8,7 +8,6 @@ CHANNEL_ID = 'CHANNEL_ID'
 intents = discord.Intents.default()
 intents.message_content = True
 
-
 intents = discord.Intents.default()
 intents.message_content = True
 
@@ -55,7 +54,7 @@ async def on_message(message):
         
     
     if message.content.startswith('$Github'):
-        await send_vers_message(message.channel)
+        await send_opensource_message(message.channel)
       
        
        
@@ -156,15 +155,15 @@ async def send_opensource_message(channel):
     
 
 async def execute_julydate():
-    channel = client.get_channel(CHANNEL_ID) 
+    channel = client.get_channel(#replaceCHANNEL_ID) 
     await julydate(channel)
 
 async def execute_augustdate():
-    channel = client.get_channel(CHANNEL_ID)  
+    channel = client.get_channel(#replaceCHANNEL_ID)  
     await augustdate(channel)  
     
 async def execute_septemberdate():
-    channel = client.get_channel(CHANNEL_ID)  
+    channel = client.get_channel(#replaceCHANNEL_ID)  
     await septemberdate(channel)  
     
 
@@ -175,7 +174,7 @@ async def execute_septemberdate():
 async def send_daily_message():
     while True:
         now = datetime.now()
-        target_time = now.replace(hour=12, minute=0, second=0)
+        target_time = now.replace(hour=12, minute=2, second=0)
 
         if now > target_time:
             target_time += timedelta(days=1)
