@@ -60,8 +60,9 @@ async def julydate(channel):
     hours, remainder = divmod(time_left.seconds, 3600)
     minutes, seconds = divmod(remainder, 60)
     july_countdown_message = (
-        f"⏳ **Il reste {days} jours, {hours} heures, {minutes} minutes et {seconds} secondes** "
-        "avant la piscine de juillet à l'école 42! 🏊‍♂️")
+        f"⏳ Il reste **{days} jours, **  \n  **{hours} heures, ** \n **{minutes} minutes, ** et **{seconds} secondes**\n"
+        "avant la piscine de juillet à l'école 42! 🏊‍♂️\n"
+        "Penser à prendre votre bonnet !💧 ")
     if current_date.date() >= event_date.date() and current_date.date() <= end_event_date.date():
         event_date_message = "✅ La piscine de juillet a commencer !"
         await channel.send(event_date_message)
@@ -81,8 +82,9 @@ async def augustdate(channel):
     hours, remainder = divmod(time_left.seconds, 3600)
     minutes, seconds = divmod(remainder, 60)
     august_countdown_message = (
-        f"⏳ **Il reste {days} jours, {hours} heures, {minutes} minutes et {seconds} secondes** "
-        "avant la piscine de août à l'école 42! 🏊‍♂️")
+        f"⏳ Il reste **{days} jours, **  \n  **{hours} heures, ** \n **{minutes} minutes, ** et **{seconds} secondes**\n"
+        "avant la piscine de août à l'école 42! 🏊‍♂️\n"
+        "Penser à prendre votre bonnet !💧 ")
     if current_date.date() >= event_date.date() and current_date.date() <= end_event_date.date():
         event_date_message = "✅ La piscine de août a commencer !"
         await channel.send(event_date_message)
@@ -103,8 +105,9 @@ async def septemberdate(channel):
     hours, remainder = divmod(time_left.seconds, 3600)
     minutes, seconds = divmod(remainder, 60)
     september_countdown_message = (
-        f"⏳ **Il reste {days} jours, {hours} heures, {minutes} minutes et {seconds} secondes** "
-        "avant la piscine de septembre à l'école 42! 🏊‍♂️")
+       f"⏳ Il reste **{days} jours, **  \n  **{hours} heures, ** \n **{minutes} minutes, ** et **{seconds} secondes**\n"
+        "avant la piscine de septembre à l'école 42! 🏊‍♂️\n"
+        "Penser à prendre votre bonnet !💧 ")
     if current_date.date() >= event_date.date() and current_date.date() <= end_event_date.date():
         event_date_message = "✅ La piscine de septembre a commencer !"
         await channel.send(event_date_message)
@@ -160,17 +163,17 @@ async def send_opensource_message(channel):
 # func to execute message at a precise date 
 
 async def execute_julydate():
-    CHANNEL_ID = 'YOUR-CHANNEL_ID'
+    CHANNEL_ID = 'CHANNEL_ID'
     channel = client.get_channel(CHANNEL_ID) 
     await julydate(channel)
 
 async def execute_augustdate():
-    CHANNEL_ID = 'YOUR-CHANNEL_ID'
+    CHANNEL_ID = 'CHANNEL_ID'
     channel = client.get_channel(CHANNEL_ID)  
     await augustdate(channel)  
     
 async def execute_septemberdate():
-    CHANNEL_ID = 'YOUR-CHANNEL_ID' 
+    CHANNEL_ID = 'CHANNEL_ID' 
     channel = client.get_channel(CHANNEL_ID)  
     await septemberdate(channel)  
     
