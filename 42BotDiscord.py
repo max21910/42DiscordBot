@@ -15,7 +15,6 @@ CHANNEL_ID_test ='YOUR-CHANNEL_ID'
 
 intents = discord.Intents.default()
 intents.message_content = True
-
 # configuring client
 client = discord.Client(intents=intents)
 
@@ -32,6 +31,10 @@ async def on_ready():
 async def on_message(message):
     if message.author == client.user:
         return
+    if message.content.startswith('$42alldays'):
+        await julydate(message.channel)
+        await augustdate(message.channel)
+        await septemberdate(message.channel)
     if message.content.startswith('$42julydays'):
         await julydate(message.channel)
     if message.content.startswith('$42augustdays'):
@@ -57,13 +60,13 @@ async def julydate(channel):
     hours, remainder = divmod(time_left.seconds, 3600)
     minutes, seconds = divmod(remainder, 60)
     july_countdown_message = (
-        f"Il reste {days} jours, {hours} heures, {minutes} minutes et {seconds} secondes "
-        "avant la piscine d'août à l'école 42 !")
+        f"⏳ **Il reste {days} jours, {hours} heures, {minutes} minutes et {seconds} secondes** "
+        "avant la piscine de juillet à l'école 42! 🏊‍♂️")
     if current_date.date() >= event_date.date() and current_date.date() <= end_event_date.date():
-        event_date_message = "✅ La piscine de septembre a commencer !"
+        event_date_message = "✅ La piscine de juillet a commencer !"
         await channel.send(event_date_message)
     if current_date.date() >= end_event_date.date() and current_date.date() <= event_date.date():
-        event_date_message = "🔴 La piscine de septembre est terminer !"
+        event_date_message = "🔴 La piscine de juillet est terminer !"
         await channel.send(event_date_message)
     if current_date.date() < event_date.date():
         await channel.send(july_countdown_message)
@@ -78,13 +81,13 @@ async def augustdate(channel):
     hours, remainder = divmod(time_left.seconds, 3600)
     minutes, seconds = divmod(remainder, 60)
     august_countdown_message = (
-        f"Il reste {days} jours, {hours} heures, {minutes} minutes et {seconds} secondes "
-        "avant la piscine d'août à l'école 42 !")
+        f"⏳ **Il reste {days} jours, {hours} heures, {minutes} minutes et {seconds} secondes** "
+        "avant la piscine de août à l'école 42! 🏊‍♂️")
     if current_date.date() >= event_date.date() and current_date.date() <= end_event_date.date():
-        event_date_message = "✅ La piscine de septembre a commencer !"
+        event_date_message = "✅ La piscine de août a commencer !"
         await channel.send(event_date_message)
     if current_date.date() >= end_event_date.date() and current_date.date() <= event_date.date():
-        event_date_message = "🔴 La piscine de septembre est terminer !"
+        event_date_message = "🔴 La piscine de août est terminer !"
         await channel.send(event_date_message)
     if current_date.date() < event_date.date():
         await channel.send(august_countdown_message)
@@ -100,8 +103,8 @@ async def septemberdate(channel):
     hours, remainder = divmod(time_left.seconds, 3600)
     minutes, seconds = divmod(remainder, 60)
     september_countdown_message = (
-        f"Il reste {days} jours, {hours} heures, {minutes} minutes et {seconds} secondes "
-        "avant la piscine de septembre à l'école 42 !")
+        f"⏳ **Il reste {days} jours, {hours} heures, {minutes} minutes et {seconds} secondes** "
+        "avant la piscine de septembre à l'école 42! 🏊‍♂️")
     if current_date.date() >= event_date.date() and current_date.date() <= end_event_date.date():
         event_date_message = "✅ La piscine de septembre a commencer !"
         await channel.send(event_date_message)
@@ -115,6 +118,7 @@ async def septemberdate(channel):
 async def send_help_message(channel):
     help_message = (
         "Guide d'utilisation du bot :\n"
+        "- Pour obtenir le décompte de toute les piscines de l'ecole 42, utilisez la commande `$42alldays`.\n"
         "- Pour obtenir le décompte jusqu'à la piscine de l'ecole 42, utilisez la commande `$42XXdays`.\n"
         "- Remplacer XX par le mois de votre piscine july, august, september.\n"
         "- si la piscine n'a pas encore commencer le décompte s'affiche\n"
