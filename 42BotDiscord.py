@@ -1,26 +1,29 @@
+# created with ❤️ by max21910 in 🇫🇷
+#install all lib listed here :
+
 import discord
 import asyncio
+import os
+import random
 from datetime import datetime, timedelta
 
 # Private token ⚠️ do not share in public 
-TOKEN = 'YOUR-DISCORD-TOKEN-HERE'   
-CHANNEL_ID = 'YOUR_CHANEL_ID_HERE'
-CHANNEL_ID_test ='TEST_CHANEL_ID_HERE'
+TOKEN = 'YOUR_TOKEN' 
+CHANNEL_ID = 'YOUR-CHANNEL_ID'
+CHANNEL_ID_test ='YOUR-CHANNEL_ID'
 # End Private token ⚠️ do not share in public 
 
 intents = discord.Intents.default()
-intents.message_content = False
+intents.message_content = True
 
 # configuring client
-
 client = discord.Client(intents=intents)
-
 
 # connection du bot et démarrage de la boucle
 @client.event
 async def on_ready():
-    
-    print(f'✅ Logged in as {client.user.name} in the serveur Listen commands start')
+    print(f'✅ Succefully Logged in as {client.user.name} in the serveur ')
+    print(f'✅ Listen commands start')
     # Démarrer la boucle pour envoyer le message quotidien à 12h
     await send_daily_message()
     
@@ -116,7 +119,7 @@ async def send_help_message(channel):
         "- Remplacer XX par le mois de votre piscine july, august, september.\n"
         "- si la piscine n'a pas encore commencer le décompte s'affiche\n"
         "- si la piscine a commencer le bot affiche: ✅ La piscine XX a commencer !\n"
-        "- si la piscine est terminer le bot affiche: 🔴 La piscine de septembre est terminer !\n"
+        "- si la piscine est terminer le bot affiche: 🔴 La piscine de XX est terminer !\n"
         "- Pour afficher la version, utilisez la commande `$Version`.\n"
         "- Pour afficher ce message d'aide, utilisez la commande `$Help`.\n"
         "- Pour afficher le code, utilisez la commande `$Github`.\n"
@@ -124,22 +127,26 @@ async def send_help_message(channel):
     )
     await channel.send(help_message)
 
-    
-    
 # Message pour la version
 async def send_vers_message(channel):
     vers_message = (
-        "- V1.4 (beta)\n"
+        "- V1.5(beta)\n"
         "- find me on Github :🌍 https://github.com/max21910/42DiscordBot)\n"
         "- created with ❤️ by max21910 in 🇫🇷 \n")
     await channel.send(vers_message)
     
-    # Message pour l'easter egg 
+# Message pour l'easter egg 
+# meme image store in Github pages 
 async def send_easteregg_message(channel):
-    help_message = (
-        "EasterEgg")# need more work here  
-    await channel.send(help_message)
-   
+  image_urls = [
+        'https://github.com/max21910/42DiscordBot/blob/main/src/EasterEgg/Xavier.jpg?raw=true',
+        'https://github.com/max21910/42DiscordBot/blob/main/src/EasterEgg/EasterEgg.jpg?raw=true',
+        'https://github.com/max21910/42DiscordBot/blob/main/src/EasterEgg/3.png?raw=true',
+        'https://github.com/max21910/42DiscordBot/blob/main/src/EasterEgg/2.JPG?raw=true',
+        'https://github.com/max21910/42DiscordBot/blob/main/src/EasterEgg/1.jpg?raw=true',]
+  selected_image_url = random.choice(image_urls)
+  await channel.send(selected_image_url)
+    
 # Message pour open source 
 async def send_opensource_message(channel):
     opensource_message = (
@@ -149,19 +156,20 @@ async def send_opensource_message(channel):
 # func to execute message at a precise date 
 
 async def execute_julydate():
-    channel = client.get_channel(YOUR_CHANEL_ID_HERE) 
+    CHANNEL_ID = 'YOUR-CHANNEL_ID'
+    channel = client.get_channel(CHANNEL_ID) 
     await julydate(channel)
 
 async def execute_augustdate():
-    channel = client.get_channel(YOUR_CHANEL_ID_HERE)  
+    CHANNEL_ID = 'YOUR-CHANNEL_ID'
+    channel = client.get_channel(CHANNEL_ID)  
     await augustdate(channel)  
     
 async def execute_septemberdate():
-    channel = client.get_channel(YOUR_CHANEL_ID_HERE)  
+    CHANNEL_ID = 'YOUR-CHANNEL_ID' 
+    channel = client.get_channel(CHANNEL_ID)  
     await septemberdate(channel)  
     
-
-
 # send a message every day at 12 am of all pool dates times remaining add 15 sec for calculate and display message
 async def send_daily_message():
     while True:
@@ -174,7 +182,6 @@ async def send_daily_message():
         channel = client.get_channel(CHANNEL_ID) 
         channeltest = client.get_channel(CHANNEL_ID_test)
         await asyncio.sleep(time_to_wait)
-# Wait until the bot is ready
         await client.wait_until_ready() 
 # execute func to send message
         await execute_julydate()
