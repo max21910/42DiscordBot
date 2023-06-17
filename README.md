@@ -82,8 +82,6 @@ XX correspond to the month of the pool
  N'hésitez pas à contribuer au projet en soumettant des pull requests ou en signalant des problèmes. Toute contribution est la bienvenue !
 
 
-
-Assurez-vous de remplacer la valeur du token dans le fichier `bot.py` par votre propre token Discord pour que le bot fonctionne correctement.
 ## ⚠️ Note :
 every 12 pm the bot automaticly send message in the specify chanel id 
 <h3 align="left">Connect with me:</h3>
