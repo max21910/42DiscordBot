@@ -52,7 +52,7 @@ Pour installer et exécuter ce bot sur un serveur Linux, suivez les étapes suiv
 Une fois le bot installé et configuré, vous pouvez l'exécuter en utilisant la commande suivante :
 
 ```shell
-python bot.py
+python 42DiscordBot.py
 ```
 
 Le bot se connectera à votre serveur Discord et sera prêt à recevoir des commandes.
