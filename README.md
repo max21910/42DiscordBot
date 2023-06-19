@@ -5,11 +5,21 @@
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=max21910&label=Profile%20views&color=0e75b6&style=flat" alt="max21910" /> </p>
 
 
+<img src="https://github.com/max21910/42DiscordBot/blob/main/src/images/chat.png?raw=true" width="400" alt="chat image"><img src="https://github.com/max21910/42DiscordBot/blob/main/src/images/profile.png?raw=true" width="300" alt="profile image">
+
+
 # Bot Discord pour les piscines de l'école 42
 
 Ce bot Discord a été créé pour afficher le décompte des piscines de l'école 42. Il fournit également des informations sur les piscines en cours, les piscines à venir et les commandes disponibles.
 
 ## Installation
+### Sur un serveur Discord 
+
+ https://discord.com/api/oauth2/authorize?client_id=1118602481434361886&permissions=8&scope=bot" 
+ 
+### Note:
+
+vous ne pourrer pas modifier le bot si vous inviter le bot sur le serveur 
 
 ### Sur un serveur Linux
 
@@ -52,8 +62,17 @@ Pour installer et exécuter ce bot sur un serveur Linux, suivez les étapes suiv
 Une fois le bot installé et configuré, vous pouvez l'exécuter en utilisant la commande suivante :
 
 ```shell
-python 42DiscordBot.py
+python3 42DiscordBot.py
 ```
+## Serveur linux 
+si l'instalation s'effectue sur un serveur linux lancer la commande :
+ ```shell
+   screen python3 path/to/file
+ ```
+Example :
+ ```shell
+   screen python3 path/file/42DiscordBot.py
+ ```
 
 Le bot se connectera à votre serveur Discord et sera prêt à recevoir des commandes.
 
@@ -68,10 +87,10 @@ Le bot se connectera à votre serveur Discord et sera prêt à recevoir des comm
 - `$Version` : Affiche la version du bot.
 - `$Github` : Affiche le lien vers le code source du bot.
 - If the pool did not start the bot displays: `Il reste {days} jours, {hours} heures, {minutes} minutes et {seconds} secondes "
-        "avant la piscine de septembre à l'école 42 ! `  
+-"avant la piscine de septembre à l'école 42 ! `  
 -If the pool has started the bot displays: `✅ La piscine de XX a commencer ! `    
-Iif the pool is finished the bot displays: `🔴 La piscine de XX est terminer ! `    
-XX correspond to the month of the pool 
+-If the pool is finished the bot displays: `🔴 La piscine de XX est terminer ! `    
+-XX correspond to the month of the pool 
 
 ## Contributeurs
 
