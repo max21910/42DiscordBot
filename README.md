@@ -79,15 +79,15 @@ Le bot se connectera à votre serveur Discord et sera prêt à recevoir des comm
 ### Commandes disponibles
 
 - `$42alldays` : Affiche le décompte de toutes les piscines de l'école 42.
-- `$42julydays` : Affiche le décompte jusqu'à la piscine de juillet.
-- `$42augustdays` : Affiche le décompte jusqu'à la piscine d'août.
-- `$42septemberdays` : Affiche le décompte jusqu'à la piscine de septembre.
+- `$42juillet` : Affiche le décompte jusqu'à la piscine de juillet.
+- `$42août` : Affiche le décompte jusqu'à la piscine d'août.
+- `$42septembre` : Affiche le décompte jusqu'à la piscine de septembre.
 - `$Help` : Affiche un message d'aide avec les commandes disponibles.
 - `$Easteregg` : Affiche une image surprise.
 - `$Version` : Affiche la version du bot.
 - `$Github` : Affiche le lien vers le code source du bot.
 - If the pool did not start the bot displays: `Il reste {days} jours, {hours} heures, {minutes} minutes et {seconds} secondes "
--"avant la piscine de septembre à l'école 42 ! `  
+- "avant la piscine de septembre à l'école 42 ! `  
 -If the pool has started the bot displays: `✅ La piscine de XX a commencer ! `    
 -If the pool is finished the bot displays: `🔴 La piscine de XX est terminer ! `    
 -XX correspond to the month of the pool 
