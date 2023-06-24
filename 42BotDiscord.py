@@ -12,37 +12,40 @@ TOKEN = 'YOUR_DISCORD_TOKEN'
 CHANNEL_ID = 'YOUR_CHANEL_ID'
 # End Private token ⚠️ do not share in public 
 
-intents = discord.Intents.default()
-intents.message_content = True
 # configuring client
+intents = discord.Intents.default()
+intents.presences = True
 client = discord.Client(intents=intents)
 
 # connection du bot et démarrage de la boucle
 @client.event
 async def on_ready():
     print(f'✅ Succefully Logged in as {client.user.name} in the serveur ')
+    print(f'✅ Start activity')
     print(f'✅ Listen commands start')
-    # Démarrer la boucle pour envoyer le message quotidien à 12h
-    await schedule_daily_alldays_command()
-# Event listen commands in channel
+    activity=discord.Activity(type=discord.ActivityType.listening, name="Ecole42 Pool musique :-)")
+    await client.change_presence(status=discord.Status.idle, activity=activity)
+    await schedule_daily_alldays_command() # Démarrer la boucle pour envoyer le message quotidien à 12h
 
+# event date :
 events = [
     {
         'name': 'juillet',
-        'start_date': datetime(2023, 7, 3, 8, 0, 0),
+        'start_date': datetime(2023, 7, 3, 9, 42, 0),
         'end_date': datetime(2023, 7, 28, 18, 0, 0)
     },
     {
         'name': 'août',
-        'start_date': datetime(2023, 8, 7, 8, 0, 0),
+        'start_date': datetime(2023, 8, 7, 9, 42, 0),
         'end_date': datetime(2023, 9, 1, 18, 0, 0)
     },
     {
         'name': 'septembre',
-        'start_date': datetime(2023, 9, 1, 8, 0, 0),
+        'start_date': datetime(2023, 9, 1, 9, 42, 0),
         'end_date': datetime(2023, 10, 1, 18, 0, 0)
     }
 ]
+# bot command :
 @client.event
 async def on_message(message):
     if message.author == client.user:
@@ -65,7 +68,7 @@ async def on_message(message):
     elif message.content.startswith('$Github'):
         await send_opensource_message(message.channel)
 
-# send message
+# send message to the channel 
 async def send_countdown_message(channel, event, command):
     current_date = datetime.now()
     start_date = event['start_date']
@@ -87,7 +90,7 @@ async def send_countdown_message(channel, event, command):
     if current_date.date() < start_date.date():
         await channel.send(countdown_message)
 
-# Message pour l'aide
+# help message
 async def send_help_message(channel):
     help_message = (
         "Guide d'utilisation du bot :\n"
@@ -99,17 +102,15 @@ async def send_help_message(channel):
         "- si la piscine est terminer le bot affiche: 🔴 La piscine de XX est terminer !\n"
         "- Pour afficher la version, utilisez la commande `$Version`.\n"
         "- Pour afficher ce message d'aide, utilisez la commande `$Help`.\n"
-        "- Pour afficher le code, utilisez la commande `$Github`.\n"
-        "- created with ❤️ by max21910 in 🇫🇷 \n"
-    )
+        "- Pour afficher le code open source, utilisez la commande `$Github`.\n"
+        "- created and wrote in python with ❤️ by max21910 in 🇫🇷 \n")
     await channel.send(help_message)
 
-# Message pour la version
+# Version message :
 async def send_vers_message(channel):
     vers_message = (
-        "- V1.7(beta)\n"
-        "- find me on Github :🌍 https://github.com/max21910/42DiscordBot)\n"
-        "- created with ❤️ by max21910 in 🇫🇷 \n")
+        "- V1.8(beta)\n"
+        "- find me on Github :🌍 https://github.com/max21910/42DiscordBot)\n")
     await channel.send(vers_message)
     
 # Message pour l'easter egg 
@@ -128,22 +129,19 @@ async def send_opensource_message(channel):
     opensource_message = (
         "hey i'm open source \n find me in : 🌍 https://github.com/max21910/42DiscordBot")
     await channel.send(opensource_message)
-# func to execute message at a precise date 
-
+    
+# func to execute message at 12h every days 
 async def schedule_daily_alldays_command():
     while True:
         current_datetime = datetime.now()
         current_time = current_datetime.time()
         target_time = time(11, 59, 45) 
-        
-        # Combinaison de la date actuelle avec l'heure cible
+         # Combinaison de la date actuelle avec l'heure cible
         target_datetime = datetime.combine(current_datetime.date(), target_time)
-        
         # Si l'heure actuelle est supérieure à l'heure cible, ajoutez un jour à la date cible
         if current_time > target_time:
             target_datetime += timedelta(days=1)
-        
-        # Calcul du délai jusqu'à l'heure cible
+         # Calcul du délai jusqu'à l'heure cible
         delay = (target_datetime - current_datetime).total_seconds()
         
         # Attendre jusqu'à l'heure cible
@@ -152,5 +150,5 @@ async def schedule_daily_alldays_command():
         # Exécuter la commande $42alldays
         for event in events:
             await send_countdown_message(client.get_channel('YOUR_CHANEL_ID'), event, event['name'])
-# run bot 
+# run bot with the provided ''TOKEN''
 client.run(TOKEN)
