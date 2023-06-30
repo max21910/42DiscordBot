@@ -71,7 +71,7 @@ async def on_message(message):
 #---------> send message to the channel 
 async def send_countdown_Message(channel, event, command):
     current_Date = datetime.now()
-    D = event['D']
+    start_Date = event['start_Date']
     end_Date = event['end_Date']
     id_Check_Date = event['id_Check_Date']
     id_Check_End_Date = event['id_Check_End_Date']
