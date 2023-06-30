@@ -10,7 +10,7 @@
 
 # Bot Discord pour les piscines de l'école 42
 
-Ce bot Discord a été créé pour afficher le décompte des piscines de l'école 42. Il fournit également des informations sur les piscines en cours, les piscines à venir et les commandes disponibles.
+Ce bot Discord a été créé pour afficher le décompte des piscines de l'école 42. Il fournit également des informations sur les piscines en cours, et les piscines à venir.
 
 ## Installation
 ### Sur un serveur Discord 
