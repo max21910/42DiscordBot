@@ -75,7 +75,7 @@ async def send_countdown_Message(channel, event, command):
     end_Date = event['end_Date']
     id_Check_Date = event['id_Check_Date']
     id_Check_End_Date = event['id_Check_End_Date']
-    time_Left = D - current_Date if current_Date < D else end_Date - current_Date
+    time_Left = start_Date - current_Date if current_Date < start_Date else end_Date - current_Date
     days = time_Left.days
     hours, remainder = divmod(time_Left.seconds, 3600)
     minutes, seconds = divmod(remainder, 60)
@@ -83,7 +83,7 @@ async def send_countdown_Message(channel, event, command):
         f"⏳ Il reste **{days} jours, **  \n  **{hours} heures, ** \n **{minutes} minutes, ** et **{seconds} secondes**\n"
         f"avant la piscine de {command} à l'école 42! 🏊‍♂️\n"
         "Pensez à prendre votre bonnet !💧 ")
-    if current_Date.date() >= D.date() and current_Date.date() <= end_Date.date():
+    if current_Date.date() >= start_Date.date() and current_Date.date() <= end_Date.date():
         event_Date_Message = f"✅ La piscine de {command} a commencé !"
         await channel.send(event_Date_Message)
     if current_Date.date() >= end_Date.date() and current_Date.date() <= D.date():
@@ -95,7 +95,7 @@ async def send_countdown_Message(channel, event, command):
     if current_Date.date() < id_Check_Date.date() or current_Date.date() > id_Check_End_Date.date():
         id_check_End_Message = f"🔴 La vérification de  votre identité pour la piscine de {command} n'a pas encore commencé ou est terminée à l'école 42 !"
         await channel.send(id_check_End_Message)
-    if current_Date.date() < D.date():
+    if current_Date.date() < start_Date.date():
         await channel.send(countdown_Message)
 #---------> help message
 async def send_help_message(channel):
