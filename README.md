@@ -1,112 +1,96 @@
 # 42DiscordBot
-<h1 align="center">Hi 👋, I'm a Discord Bot</h1>
 
+## Hi 👋, I'm a Discord Bot
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=max21910&label=Profile%20views&color=0e75b6&style=flat" alt="max21910" /> </p>
+![Profile views](https://komarev.com/ghpvc/?username=max21910&label=Profile%20views&color=0e75b6&style=flat)
 
+![Chat Image](https://github.com/max21910/42DiscordBot/blob/main/src/images/chat.png?raw=true)
+![Profile Image](https://github.com/max21910/42DiscordBot/blob/main/src/images/profile.png?raw=true)
 
-<img src="https://github.com/max21910/42DiscordBot/blob/main/src/images/chat.png?raw=true" width="400" alt="chat image"><img src="https://github.com/max21910/42DiscordBot/blob/main/src/images/profile.png?raw=true" width="300" alt="profile image">
+## Discord Bot for 42 School Piscines
 
+This Discord bot was created to display the countdown for 42 School piscines. It also provides information about ongoing piscines and upcoming ones.
 
-# Bot Discord pour les piscines de l'école 42
+### Installation
 
-Ce bot Discord a été créé pour afficher le décompte des piscines de l'école 42. Il fournit également des informations sur les piscines en cours, et les piscines à venir.
+#### On a Discord Server
 
-## Installation
-### Sur un serveur Discord 
+[Click here to invite the bot to your server](https://discord.com/api/oauth2/authorize?client_id=1118602481434361886&permissions=8&scope=bot)
 
- https://discord.com/api/oauth2/authorize?client_id=1118602481434361886&permissions=8&scope=bot" 
- 
-### Note:
+**Note:**
+You won't be able to modify the bot if you invite it to the server.
 
-vous ne pourrer pas modifier le bot si vous inviter le bot sur le serveur 
+#### On a Linux Server
 
-### Sur un serveur Linux
+To install and run this bot on a Linux server, follow these steps:
 
-Pour installer et exécuter ce bot sur un serveur Linux, suivez les étapes suivantes :
+1. Make sure you have Python 3.8 or a later version installed on your Linux server.
+2. Clone this GitHub repository to your server using the following command:
 
-1. Assurez-vous d'avoir Python 3.8 ou une version ultérieure installée sur votre serveur Linux.
-2. Clonez ce dépôt GitHub sur votre serveur en utilisant la commande suivante :
-
-   ```shell
+   ```
    git clone https://github.com/max21910/42DiscordBot.git
+Navigate to the bot directory:
+
+
    ```
-
-3. Accédez au répertoire du bot :
-
-   ```shell
-   cd 42DiscordBot
+cd 42DiscordBot
    ```
-
-4. Installez les dépendances en exécutant la commande suivante :
-
-   ```shell
-   pip install -r requirements.txt
+Install the dependencies by running the following command:
    ```
+pip install -r requirements.txt
+   ```
+Obtain a token for your Discord bot by following the instructions in the official Discord documentation: Creating a Bot Account.
 
-5. Obtenez un token pour votre bot Discord en suivant les instructions de la documentation officielle de Discord : [Creating a Bot Account](https://discordpy.readthedocs.io/en/stable/discord.html).
-6. Remplacez la valeur du `TOKEN` dans le fichier `bot.py` par votre propre token.
+Replace the value of TOKEN in the bot.py file with your own token.
 
-### Configuration du bot sur le portail développeur de Discord
+Configuring the Bot on the Discord Developer Portal
+Go to the Discord Developer Portal and log in with your Discord account.
+Click on "New Application" to create a new application.
+Give your application a name (e.g., "42DiscordBot") and click "Create."
+In the left menu, select "Bot."
+Click on "Add Bot" to add a bot to your application.
+Under the "Token" section, click "Copy" to copy the bot token.
+Replace the value of TOKEN in the bot.py file with the token you copied.
+Usage
+Once the bot is installed and configured, you can run it using the following command:
 
-1. Accédez au [portail développeur de Discord](https://discord.com/developers/applications) et connectez-vous avec votre compte Discord.
-2. Cliquez sur "New Application" pour créer une nouvelle application.
-3. Donnez un nom à votre application (par exemple, "42DiscordBot") et cliquez sur "Create".
-4. Dans le menu de gauche, sélectionnez "Bot".
-5. Cliquez sur "Add Bot" pour ajouter un bot à votre application.
-6. Sous la section "Token", cliquez sur "Copy" pour copier le token du bot.
-7. Remplacez la valeur du `TOKEN` dans le fichier `bot.py` par le token que vous avez copié.
-
-## Utilisation
-
-Une fois le bot installé et configuré, vous pouvez l'exécuter en utilisant la commande suivante :
-
-```shell
+   ```
 python3 42DiscordBot.py
-```
-## Serveur linux 
-si l'instalation s'effectue sur un serveur linux lancer la commande :
- ```shell
-   screen python3 path/to/file
- ```
-Example :
- ```shell
-   screen python3 path/file/42DiscordBot.py
- ```
+   ```
+Linux Server
+If the installation is on a Linux server, run the command:
+   ```
+screen python3 path/to/file
+   ```
+Example:
+   ```
+screen python3 path/file/42DiscordBot.py
+   ```
+The bot will connect to your Discord server and be ready to receive commands.
 
-Le bot se connectera à votre serveur Discord et sera prêt à recevoir des commandes.
+Available Commands
+$42alldays: Displays the countdown for all 42 School piscines.
+$42july: Displays the countdown until the July piscine.
+$42august: Displays the countdown until the August piscine.
+$42september: Displays the countdown until the September piscine.
+$Help: Displays a help message with available commands.
+$Easteregg: Displays a surprise image.
+$Version: Displays the bot version.
+$Github: Displays the link to the bot's source code.
+If the piscine has not started, the bot displays: Il reste {days} jours, {hours} heures, {minutes} minutes et {seconds} secondes avant la piscine de septembre à l'école 42!
+If the piscine has started, the bot displays: ✅ La piscine de XX a commencé!
+If the piscine is finished, the bot displays: 🔴 La piscine de XX est terminée!
+XX corresponds to the month of the piscine.
+Contributors
+Created by max21910
+Note
+Feel free to contribute to the project by submitting pull requests or reporting issues. Any contribution is welcome!
 
-### Commandes disponibles
+⚠️ Note:
+Every day at 12 PM, the bot automatically sends a message in the specified channel ID.
 
-- `$42alldays` : Affiche le décompte de toutes les piscines de l'école 42.
-- `$42juillet` : Affiche le décompte jusqu'à la piscine de juillet.
-- `$42août` : Affiche le décompte jusqu'à la piscine d'août.
-- `$42septembre` : Affiche le décompte jusqu'à la piscine de septembre.
-- `$Help` : Affiche un message d'aide avec les commandes disponibles.
-- `$Easteregg` : Affiche une image surprise.
-- `$Version` : Affiche la version du bot.
-- `$Github` : Affiche le lien vers le code source du bot.
-- If the pool did not start the bot displays: `Il reste {days} jours, {hours} heures, {minutes} minutes et {seconds} secondes "
-- "avant la piscine de septembre à l'école 42 ! `  
--If the pool has started the bot displays: `✅ La piscine de XX a commencer ! `    
--If the pool is finished the bot displays: `🔴 La piscine de XX est terminer ! `    
--XX correspond to the month of the pool 
-
-## Contributeurs
-
-- Created by [max21910](https://github.com/max21910)
-
-## Remarque
-
- N'hésitez pas à contribuer au projet en soumettant des pull requests ou en signalant des problèmes. Toute contribution est la bienvenue !
-
-
-## ⚠️ Note :
-every 12 pm the bot automaticly send message in the specify chanel id 
-<h3 align="left">Connect with me:</h3>
-<p align="left">
-<a href="https://twitter.com/max21160" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="max21160" height="30" width="40" /></a>
-<a href="https://instagram.com/maxime_dpj" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="maxime_dpj" height="30" width="40" /></a>
-<a href="https://medium.com/max21160" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/medium.svg" alt="max21160" height="30" width="40" /></a>
-<a href="https://www.youtube.com/c/max_studio" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/youtube.svg" alt="max_studio" height="30" width="40" /></a>
-</p>
+Connect with me:
+Twitter
+Instagram
+Medium
+YouTube
