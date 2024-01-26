@@ -1,5 +1,5 @@
 # 42DiscordBot
-
+!!!!!This project is no longer  maintained. !!!!!!
 ## Hi 👋, I'm a Discord Bot
 
 ![Profile views](https://komarev.com/ghpvc/?username=max21910&label=Profile%20views&color=0e75b6&style=flat)
